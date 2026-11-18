@@ -1,9 +1,13 @@
 // Essa estrutura permite que os valores key e value sejam serializados e exibidos no Inspector da Unity.
 // São utilizadas na criação de dicionários de estados do mundo.
 
-[System.Serializable]
-public class WorldState 
+
+namespace GOAP.EDU
 {
-    public string key;
-    public int value;
+    [System.Serializable]
+    public class WorldState
+    {
+        public string key;
+        public int value;
+    }
 }

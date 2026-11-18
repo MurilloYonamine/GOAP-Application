@@ -1,16 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class UpdateWorld : MonoBehaviour
+
+namespace GOAP.EDU
 {
-    public TextMeshProUGUI states;
-    void Update()
+    public class UpdateWorld : MonoBehaviour
     {
-        Dictionary<string, int> wStates = GoapWorld.Instance.GetWorldStates().GetStates();
-        states.text = "";
-        foreach (KeyValuePair<string, int> s in wStates)
+        public TextMeshProUGUI states;
+        void Update()
         {
-            states.text += s.Key + ": " + s.Value + "\n";
+            Dictionary<string, int> wStates = GoapWorld.Instance.GetWorldStates().GetStates();
+            states.text = "";
+            foreach (KeyValuePair<string, int> s in wStates)
+            {
+                states.text += s.Key + ": " + s.Value + "\n";
+            }
         }
     }
 }

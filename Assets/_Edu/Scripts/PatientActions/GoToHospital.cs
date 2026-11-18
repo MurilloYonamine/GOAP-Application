@@ -1,12 +1,16 @@
-public class GoToHospital : GoapAction
-{
-    public override bool PrePerform()
-    {
-        return true;
-    }
 
-    public override bool PostPerform()
+namespace GOAP.EDU
+{
+    public class GoToHospital : GoapAction
     {
-        return true;
+        public override bool PrePerform()
+        {
+            return true;
+        }
+
+        public override bool PostPerform()
+        {
+            return true;
+        }
     }
 }

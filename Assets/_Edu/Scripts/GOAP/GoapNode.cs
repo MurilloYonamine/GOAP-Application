@@ -1,32 +1,36 @@
 using System.Collections.Generic;
 
-public class GoapNode
+
+namespace GOAP.EDU
 {
-    public GoapNode parent;
-    public float cost;
-    public Dictionary<string, int> state;
-    public GoapAction action;
-
-    public GoapNode(GoapNode parent, float cost, Dictionary<string, int> allStates, GoapAction action)
+    public class GoapNode
     {
-        this.parent = parent;
-        this.cost = cost;
-        state = new Dictionary<string, int>(allStates);
-        this.action = action;
-    }
+        public GoapNode parent;
+        public float cost;
+        public Dictionary<string, int> state;
+        public GoapAction action;
 
-    public GoapNode(GoapNode parent, float cost, Dictionary<string, int> allStates, Dictionary<string, int> agentStates, GoapAction action)
-    {
-        this.parent = parent;
-        this.cost = cost;
-        state = new Dictionary<string, int>(allStates);
-        foreach (KeyValuePair<string, int> aState in agentStates)
+        public GoapNode(GoapNode parent, float cost, Dictionary<string, int> allStates, GoapAction action)
         {
-            if(!state.ContainsKey(aState.Key))
-            {
-                state.Add(aState.Key, aState.Value);
-            }
+            this.parent = parent;
+            this.cost = cost;
+            state = new Dictionary<string, int>(allStates);
+            this.action = action;
         }
-        this.action = action;
+
+        public GoapNode(GoapNode parent, float cost, Dictionary<string, int> allStates, Dictionary<string, int> agentStates, GoapAction action)
+        {
+            this.parent = parent;
+            this.cost = cost;
+            state = new Dictionary<string, int>(allStates);
+            foreach (KeyValuePair<string, int> aState in agentStates)
+            {
+                if (!state.ContainsKey(aState.Key))
+                {
+                    state.Add(aState.Key, aState.Value);
+                }
+            }
+            this.action = action;
+        }
     }
 }
